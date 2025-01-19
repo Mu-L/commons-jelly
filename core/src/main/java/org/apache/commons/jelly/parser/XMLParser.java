@@ -75,7 +75,6 @@ public class XMLParser extends DefaultHandler {
      */
     private static Properties jellyProperties;
 
-
     /** JellyContext which is used to locate tag libraries*/
     private JellyContext context = new JellyContext();
 
@@ -227,7 +226,6 @@ public class XMLParser extends DefaultHandler {
      * the root element from the object stack (if any).
      *
      * @param file File containing the XML data to be parsed
-     *
      * @throws IOException if an input/output error occurs
      * @throws SAXException if a parsing exception occurs
      */
@@ -240,7 +238,6 @@ public class XMLParser extends DefaultHandler {
      * the root element from the object stack (if any).
      *
      * @param url URL containing the XML data to be parsed
-     *
      * @throws IOException if an input/output error occurs
      * @throws SAXException if a parsing exception occurs
      */
@@ -259,7 +256,6 @@ public class XMLParser extends DefaultHandler {
      * Returns the root element from the object stack (if any).
      *
      * @param input Input source containing the XML data to be parsed
-     *
      * @throws IOException if an input/output error occurs
      * @throws SAXException if a parsing exception occurs
      */
@@ -317,7 +313,6 @@ public class XMLParser extends DefaultHandler {
      * Returns the root element from the object stack (if any).
      *
      * @param uri URI containing the XML data to be parsed
-     *
      * @throws IOException if an input/output error occurs
      * @throws SAXException if a parsing exception occurs
      */
@@ -595,7 +590,6 @@ public class XMLParser extends DefaultHandler {
         this.validating = validating;
     }
 
-
     /**
      * Returns the script that has just been created if this class is used
      * as a SAX ContentHandler and passed into some XML processor or parser.
@@ -606,7 +600,6 @@ public class XMLParser extends DefaultHandler {
     public ScriptBlock getScript() {
         return script;
     }
-
 
     // ContentHandler interface
     //-------------------------------------------------------------------------
@@ -748,7 +741,6 @@ public class XMLParser extends DefaultHandler {
      * @param buffer The characters from the XML document
      * @param start Starting offset into the buffer
      * @param length Number of characters from the buffer
-     *
      * @throws SAXException if a parsing error is to be reported
      */
     @Override
@@ -805,7 +797,6 @@ public class XMLParser extends DefaultHandler {
      *
      * @param prefix Prefix that is being declared
      * @param namespaceURI Corresponding namespace URI being mapped to
-     *
      * @throws SAXException if a parsing error is to be reported
      */
     @Override
@@ -829,7 +820,6 @@ public class XMLParser extends DefaultHandler {
      * Process notification that a namespace prefix is going out of scope.
      *
      * @param prefix Prefix that is going out of scope
-     *
      * @throws SAXException if a parsing error is to be reported
      */
     @Override
@@ -857,7 +847,6 @@ public class XMLParser extends DefaultHandler {
      * @param buffer The characters from the XML document
      * @param start Starting offset into the buffer
      * @param len Number of characters from the buffer
-     *
      * @throws SAXException if a parsing error is to be reported
      */
     @Override
@@ -871,7 +860,6 @@ public class XMLParser extends DefaultHandler {
      *
      * @param target The processing instruction target
      * @param data The processing instruction data (if any)
-     *
      * @throws SAXException if a parsing error is to be reported
      */
     @Override
@@ -894,14 +882,12 @@ public class XMLParser extends DefaultHandler {
      * Process notification of a skipped entity.
      *
      * @param name Name of the skipped entity
-     *
      * @throws SAXException if a parsing error is to be reported
      */
     @Override
     public void skippedEntity(String name) throws SAXException {
         ; // No processing required
     }
-
 
     // DTDHandler interface
     //-------------------------------------------------------------------------
@@ -933,7 +919,6 @@ public class XMLParser extends DefaultHandler {
         String notation) {
     }
 
-
     // ErrorHandler interface
     //-------------------------------------------------------------------------
 
@@ -942,7 +927,6 @@ public class XMLParser extends DefaultHandler {
      * error handler, if any, otherwise throw a SAXException with the error.
      *
      * @param exception The error information
-     *
      * @throws SAXException if a parsing exception occurs
      */
     @Override
@@ -967,7 +951,6 @@ public class XMLParser extends DefaultHandler {
      * supplied error handler, if any, otherwise throw a SAXException with the error.
      *
      * @param exception The fatal error information
-     *
      * @throws SAXException if a parsing exception occurs
      */
     @Override
@@ -994,7 +977,6 @@ public class XMLParser extends DefaultHandler {
      * NOT throw a SAXException by default if no error handler is supplied.
      *
      * @param exception The warning information
-     *
      * @throws SAXException if a parsing exception occurs
      */
     @Override
@@ -1044,7 +1026,6 @@ public class XMLParser extends DefaultHandler {
             }
         }
     }
-
 
     /**
      * A helper method which loads the static Jelly properties once on startup
@@ -1159,7 +1140,6 @@ public class XMLParser extends DefaultHandler {
         }
     }
 
-
     /**
      * Factory method to create a static Tag that represents some static content.
      */
@@ -1246,7 +1226,6 @@ public class XMLParser extends DefaultHandler {
     	Expression expression = createExpression(tagScript, "", text);
         addExpressionScript(script, expression);
     }
-
 
     /**
      * Adds the given Expression object to the current Script.

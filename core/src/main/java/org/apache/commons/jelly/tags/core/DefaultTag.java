@@ -20,7 +20,6 @@ import org.apache.commons.jelly.JellyTagException;
 import org.apache.commons.jelly.TagSupport;
 import org.apache.commons.jelly.XMLOutput;
 
-
 /**
  * A tag which conditionally evaluates its body if
  * none of its preceeding sibling {@link CaseTag &lt;case&gt;}
@@ -30,7 +29,6 @@ import org.apache.commons.jelly.XMLOutput;
  * {@link SwitchTag &lt;switch&gt;} tag.
  *
  * @see SwitchTag
- *
  * @author Rodney Waldhoff
  */
 public class DefaultTag extends TagSupport {

@@ -37,12 +37,10 @@ import java.util.MissingResourceException;
  */
 public class BundleTag extends TagSupport {
 
-
     //*********************************************************************
     // Private constants
 
     private static final Locale EMPTY_LOCALE = new Locale("", "");
-
 
     //*********************************************************************
     // Protected state
@@ -54,12 +52,10 @@ public class BundleTag extends TagSupport {
     /** Evaluated prefix */
     private String eprefix;
 
-
     //*********************************************************************
     // Private state
 
     private LocalizationContext locCtxt;
-
 
     //*********************************************************************
     // Constructor and initialization
@@ -77,7 +73,6 @@ public class BundleTag extends TagSupport {
     public String getPrefixAsString() {
         return eprefix;
     }
-
 
     //*********************************************************************
     // Tag logic
@@ -107,7 +102,6 @@ public class BundleTag extends TagSupport {
         this.locCtxt = this.getLocalizationContext(context, ebasename);
         invokeBody(output);
     }
-
 
     //*********************************************************************
     // Public utility methods
@@ -153,7 +147,6 @@ public class BundleTag extends TagSupport {
      * @param jellyContext Page in which the resource bundle with the
      * given base name is requested
      * @param basename Resource bundle base name
-     *
      * @return Localization context containing the resource bundle with the
      * given base name and the locale that led to the resource bundle match,
      * or the empty localization context if no resource bundle match was found
@@ -166,7 +159,6 @@ public class BundleTag extends TagSupport {
         if ((basename == null) || basename.isEmpty()) {
             return new LocalizationContext();
         }
-
 
         // Try preferred locales
         Locale pref = null; {
@@ -226,8 +218,6 @@ public class BundleTag extends TagSupport {
         return locCtxt;
     }
 
-
-
     /*
      * Gets the resource bundle with the given base name and preferred locale.
      *
@@ -238,7 +228,6 @@ public class BundleTag extends TagSupport {
      * @param basename the resource bundle base name
      * @param pref the preferred locale
      * @param cl   classloader used to find resource bundle
-     *
      * @return the requested resource bundle, or {@code null} if no resource
      * bundle with the given base name exists or if there is no exact- or
      * language-match between the preferred locale and the locale of

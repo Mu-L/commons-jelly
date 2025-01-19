@@ -23,6 +23,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Objects;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.MethodUtils;
@@ -69,7 +70,6 @@ public class AntTag extends MapTagSupport implements TaskSource {
 
     /** Task, if this tag represents a task. */
     protected Task task;
-
 
     /** Constructs  with a project and tag name.
      *
@@ -295,7 +295,6 @@ public class AntTag extends MapTagSupport implements TaskSource {
         }
     }
 
-
     // Properties
     //-------------------------------------------------------------------------
     public String getTagName() {
@@ -311,11 +310,7 @@ public class AntTag extends MapTagSupport implements TaskSource {
     }
 
     public Project getAntProject() {
-        Project project = AntTagLibrary.getProject(context);
-        if (project == null) {
-            throw new NullPointerException("No Ant Project object is available");
-        }
-        return project;
+        return Objects.requireNonNull(AntTagLibrary.getProject(context), "No Ant Project object is available");
     }
 
     // Implementation methods
@@ -390,7 +385,6 @@ public class AntTag extends MapTagSupport implements TaskSource {
             }
         }
     }
-
 
     /**
      * Creates a nested object of the given object with the specified name

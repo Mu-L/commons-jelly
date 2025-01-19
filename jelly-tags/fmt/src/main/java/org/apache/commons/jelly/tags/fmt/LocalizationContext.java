@@ -19,7 +19,6 @@ package org.apache.commons.jelly.tags.fmt;
 import java.util.ResourceBundle;
 import java.util.Locale;
 
-
 /**
  * Class representing an I18N localization context.
  *
@@ -32,7 +31,6 @@ import java.util.Locale;
  * and &lt;fmt:parseDate&gt; actions as their formatting locale.
  *
  * @see javax.servlet.jsp.jstl.fmt.LocalizationContext
- *
  * @author <a href="mailto:willievu@yahoo.com">Willie Vu</a>
  * @version 1.1
  */

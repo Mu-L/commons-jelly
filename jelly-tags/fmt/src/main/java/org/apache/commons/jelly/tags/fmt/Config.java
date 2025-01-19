@@ -19,7 +19,6 @@ package org.apache.commons.jelly.tags.fmt;
 
 import org.apache.commons.jelly.JellyContext;
 
-
 /**
  * Class supporting access to configuration data.
  * @author <a href="mailto:willievu@yahoo.com">Willie Vu</a>
@@ -55,7 +54,6 @@ public class Config {
      */
     public static final String FMT_TIME_ZONE
     = "org.apache.commons.jelly.tags.fmt.timeZone";
-
 
     /**
      * Looks up a configuration variable in the given scope.
@@ -98,7 +96,6 @@ public class Config {
      * @param request Request object in which the configuration variable is to
      * be looked up
      * @param name Configuration variable name
-     *
      * @return The <code>java.lang.Object</code> associated with the configuration
      * variable, or null if it is not defined.
      */
@@ -116,7 +113,6 @@ public class Config {
      * @param session Session object in which the configuration variable is to
      * be looked up
      * @param name Configuration variable name
-     *
      * @return The <code>java.lang.Object</code> associated with the configuration
      * variable, or null if it is not defined.
      */
@@ -134,7 +130,6 @@ public class Config {
      * @param context Servlet context in which the configuration variable is
      * to be looked up
      * @param name Configuration variable name
-     *
      * @return The <code>java.lang.Object</code> associated with the configuration
      * variable, or null if it is not defined.
      */

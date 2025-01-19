@@ -16,7 +16,6 @@
  */
 package org.apache.commons.jelly.tags.swing;
 
-
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -51,7 +50,7 @@ import org.apache.commons.logging.LogFactory;
 
 /**
  * This tag creates a Swing component and adds it to its parent tag, optionally declaring this
- * component as a variable if the <i>var</i> attribute is specified.
+ * component as a variable if the <em>var</em> attribute is specified.
  *
  * <p>
  * This tag clears the reference to it's bean after doTag runs.
@@ -228,7 +227,6 @@ public class ComponentTag extends UseBeanTag implements ContainerTag {
         return null;
     }
 
-
     // ContainerTag interface
     //-------------------------------------------------------------------------
 
@@ -289,7 +287,6 @@ public class ComponentTag extends UseBeanTag implements ContainerTag {
         }
     }
 
-
     // Implementation methods
     //-------------------------------------------------------------------------
 
@@ -329,7 +326,6 @@ public class ComponentTag extends UseBeanTag implements ContainerTag {
             throw new JellyTagException(e);
         }
     }
-
 
     /**
      * Either defines a variable or adds the current component to the parent

@@ -30,7 +30,6 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-
 /**
  * Support for tag handlers for &lt;formatDate&gt;, the date and time formatting
  * tag in JSTL.
@@ -300,9 +299,7 @@ public class FormatDateTag extends TagSupport {
      *
      * @param style String description of formatting style for dates and times
      * @param errCode Error code to throw if given style is invalid
-     *
      * @return java.util.DateFormat constant corresponding to given style
-     *
      * @throws JellyException if the given style is invalid
      */
     public static int getStyle(String style, String errCode)
