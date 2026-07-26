@@ -115,7 +115,7 @@ public class QueryTag extends SqlTagSupport {
             else {
                 sqlStatement = getBodyText();
             }
-            if (sqlStatement == null || sqlStatement.trim().length() == 0) {
+            if (sqlStatement == null || sqlStatement.trim().isEmpty()) {
                 throw new JellyTagException(Resources.getMessage("SQL_NO_STATEMENT"));
             }
             /*
