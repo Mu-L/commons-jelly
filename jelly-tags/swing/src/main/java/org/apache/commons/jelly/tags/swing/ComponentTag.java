@@ -411,7 +411,7 @@ public class ComponentTag extends UseBeanTag implements ContainerTag {
     public String toString() {
 		final Component comp = getComponent();
         String componentName = comp!=null ? comp.getName() : null;
-        if (comp!=null && (componentName == null || componentName.length() == 0)) {
+        if (comp!=null && (componentName == null || componentName.isEmpty())) {
             componentName = getComponent().toString();
         }
         return "ComponentTag with bean " + componentName;
