@@ -111,7 +111,7 @@ public class SetTag extends TagSupport {
         }
         if (value instanceof String) {
             final String s = (String) value;
-            return s.length() == 0;
+            return s.isEmpty();
         }
         return false;
     }
