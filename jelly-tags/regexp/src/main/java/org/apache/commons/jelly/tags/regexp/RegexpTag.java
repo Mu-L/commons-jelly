@@ -38,7 +38,7 @@ public abstract class RegexpTag extends TagSupport {
     @Override
     public void doTag(final XMLOutput output) throws MissingAttributeException, JellyTagException {
         // Check required properties
-        if (getText() == null || getText().length() == 0) {
+        if (getText() == null || getText().isEmpty()) {
             throw new MissingAttributeException("text must be provided");
         }
 
@@ -46,7 +46,7 @@ public abstract class RegexpTag extends TagSupport {
             throw new MissingAttributeException("expr must be provided");
         }
 
-        if (var == null || var.length() == 0) {
+        if (var == null || var.isEmpty()) {
             throw new MissingAttributeException("var must be provided");
         }
 
