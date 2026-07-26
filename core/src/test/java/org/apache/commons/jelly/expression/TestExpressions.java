@@ -156,7 +156,7 @@ public class TestExpressions extends TestCase {
         context.setVariable("something.blank", "");
         context.setVariable("something.ok", "cheese");
 
-        assertExpression("${something.blank.length() == 0}", Boolean.TRUE);
+        assertExpression("${something.blank.isEmpty()}", Boolean.TRUE);
         assertExpression("${something.blank == ''}", Boolean.TRUE);
         assertExpression("${something.ok != null}", Boolean.TRUE);
         assertExpression("${something.ok != ''}", Boolean.TRUE);
