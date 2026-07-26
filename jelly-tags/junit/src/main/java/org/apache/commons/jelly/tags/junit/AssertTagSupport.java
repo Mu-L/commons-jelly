@@ -354,7 +354,7 @@ public abstract class AssertTagSupport extends XPathTagSupport {
      * @throws JellyAssertionFailedError to signify failure
      */
     protected void fail(final String message, final String detail) throws JellyAssertionFailedError {
-        if (message == null || message.length() == 0) {
+        if (message == null || message.isEmpty()) {
             fail(detail);
         }
         else {
