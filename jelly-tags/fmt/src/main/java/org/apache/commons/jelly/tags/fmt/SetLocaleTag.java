@@ -211,7 +211,7 @@ public class SetLocaleTag extends TagSupport {
             country = locale.substring(index+1);
         }
 
-        if (language == null || language.length() == 0) {
+        if (language == null || language.isEmpty()) {
             throw new IllegalArgumentException("Missing language");
         }
 
