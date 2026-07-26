@@ -41,7 +41,7 @@ public abstract class AssertTagSupport extends XPathTagSupport {
      * Produces a failure assertion with the given message and added detail.
      */
     protected void fail(final String message, final String detail) throws JellyAssertionFailedError {
-        if (message == null || message.length() == 0) {
+        if (message == null || message.isEmpty()) {
             fail(detail);
         }
         else {
