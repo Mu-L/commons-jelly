@@ -494,7 +494,7 @@ public class XMLParser extends DefaultHandler {
                         final String attributeName = list.getLocalName(i);
                         // Fix for JELLY-184 where the xmlns attributes have a blank name and cause
                         //	an exception later on
-                        if (attributeName.length() == 0) {
+                        if (attributeName.isEmpty()) {
                             continue;
                         }
                         final String attributeValue = list.getValue(i);
