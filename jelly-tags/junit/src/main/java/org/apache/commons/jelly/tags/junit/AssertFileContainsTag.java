@@ -50,7 +50,7 @@ public class AssertFileContainsTag extends AssertTagSupport
             throw new MissingAttributeException("match");
         }
         String message = getBodyText();
-        if (message == null || message.length() == 0)
+        if (message == null || message.isEmpty())
         {
             message = "File does not contain '" + match + "'";
         }
