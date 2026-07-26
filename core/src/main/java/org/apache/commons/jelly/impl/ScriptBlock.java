@@ -109,7 +109,7 @@ public class ScriptBlock implements Script {
                 final TextScript textScript = (TextScript) script;
                 String text = textScript.getText();
                 text = text.trim();
-                if ( text.length() == 0 ) {
+                if ( text.isEmpty() ) {
                     list.remove(i);
                 }
                 else {
