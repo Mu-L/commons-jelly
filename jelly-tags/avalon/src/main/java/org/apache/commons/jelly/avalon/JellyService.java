@@ -36,7 +36,7 @@ public interface JellyService {
      *
      * @param params Parameters to be supplied to the script
      * @return All of the variables from the JellyContext
-     * @throws Exception if the script raises some kind of exception while processing
+     * @throws Exception Thrown if the script raises some kind of exception while processing
      */
     Map runNamedScript( String name, Map params ) throws Exception;
 
@@ -49,7 +49,7 @@ public interface JellyService {
      * @param params Parameters to be supplied to the script
      * @param out is the outputStream for output to be sent
      * @return All of the variables from the JellyContext
-     * @throws Exception if the script raises some kind of exception while processing
+     * @throws Exception Thrown if the script raises some kind of exception while processing
      */
     Map runNamedScript( String name, Map params, OutputStream out ) throws Exception;
 
@@ -61,7 +61,7 @@ public interface JellyService {
      * @param params Parameters to be supplied to the script
      * @param output is the XMLOutput for any output to be sent
      * @return All of the variables from the JellyContext
-     * @throws Exception if the script raises some kind of exception while processing
+     * @throws Exception Thrown if the script raises some kind of exception while processing
      */
     Map runNamedScript( String name, Map params, XMLOutput output ) throws Exception;
 
@@ -71,7 +71,7 @@ public interface JellyService {
      * @param url The URL of the script
      * @param params Parameters to be supplied to the script
      * @return All of the variables from the JellyContext
-     * @throws Exception if the script raises some kind of exception while processing
+     * @throws Exception Thrown if the script raises some kind of exception while processing
      */
     Map runScript( String url, Map params ) throws Exception;
 
@@ -83,7 +83,7 @@ public interface JellyService {
      * @param params Parameters to be supplied to the script
      * @param out The OutputStream to send the output of the script to
      * @return All of the variables from the JellyContext
-     * @throws Exception if the script raises some kind of exception while processing
+     * @throws Exception Thrown if the script raises some kind of exception while processing
      */
     Map runScript( String url, Map params, OutputStream out ) throws Exception;
 

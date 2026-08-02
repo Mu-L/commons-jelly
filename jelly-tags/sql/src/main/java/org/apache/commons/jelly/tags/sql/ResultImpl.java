@@ -100,7 +100,7 @@ public class ResultImpl implements Result {
      * row
      * @param startRow beginning row to be cached
      * @param maxRows query maximum rows limit
-     * @throws SQLException if a database error occurs
+     * @throws SQLException Thrown if a database error occurs
      */
     public ResultImpl(final ResultSet rs, final int startRow, final int maxRows)
         throws SQLException {

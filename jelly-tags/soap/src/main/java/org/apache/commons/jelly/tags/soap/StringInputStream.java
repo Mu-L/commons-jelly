@@ -46,7 +46,7 @@ public class StringInputStream
     /**
      * Closes the Stringreader.
      *
-     * @throws IOException if the original StringReader fails to be closed
+     * @throws IOException Thrown if the original StringReader fails to be closed
      */
     @Override
     public void close() throws IOException
@@ -89,7 +89,7 @@ public class StringInputStream
      * such input.
      *
      * @return The value of the next character in the StringReader
-     * @throws IOException if the original StringReader fails to be read
+     * @throws IOException Thrown if the original StringReader fails to be read
      */
     @Override
     public int read() throws IOException
@@ -100,7 +100,7 @@ public class StringInputStream
     /**
      * Resets the StringReader.
      *
-     * @throws IOException if the StringReader fails to be reset
+     * @throws IOException Thrown if the StringReader fails to be reset
      */
     @Override
     public synchronized void reset() throws IOException
