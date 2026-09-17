@@ -49,6 +49,7 @@ The <action> type attribute can be add,update,fix,remove.
       <action type="add" dev="ggregory" due-to="Gary Gregory">Extract commons version into new POM property ${mx4j.version}.</action>
       <!-- FIX -->
       <action type="fix" dev="pkarwasz" due-to="Piotr P. Karwasz, Gary Gregory">Create XML parsers and readers through org.apache.commons:commons-secure-xml, so external entities and DTDs are no longer fetched unless JellyContext.setAllowDtdToCallExternalEntities(true) is used (#108).</action>
+      <action type="fix" dev="pkarwasz" due-to="Piotr P. Karwasz">Compare documents in &lt;xu:assertDocumentsEqual&gt; through DOM trees built with commons-secure-xml, so XMLUnit no longer re-parses them with a parser that fetches external DTDs.</action>
       <action type="fix" dev="pkarwasz" due-to="Piotr P. Karwasz, Gary Gregory">Set an EntityResolver on every dom4j SAXReader, so its default resolver no longer fetches external DTDs and entities behind the back of commons-secure-xml.</action>
       <action type="fix" dev="ggregory" due-to="Gary Gregory">Throw specialized RuntimeExceptions instead of plain RuntimeExceptions.</action>
       <action type="fix" dev="ggregory" due-to="Gary Gregory">Deprecate NestedRuntimeException for RuntimeException.</action>

@@ -17,12 +17,26 @@
 
 package org.apache.commons.jelly.tags.xmlunit;
 
+import java.io.IOException;
+import java.io.StringReader;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.apache.commons.jelly.JellyTagException;
+import org.apache.commons.jelly.XMLOutput;
+import org.apache.commons.xml.secure.SecureDocumentBuilderFactory;
+import org.apache.commons.xml.secure.SecureSAXParserFactory;
+
 import org.apache.commons.jelly.JellyTagException;
 import org.apache.commons.jelly.XMLOutput;
 import org.custommonkey.xmlunit.Diff;
 import org.custommonkey.xmlunit.XMLUnit;
 import org.dom4j.Document;
 import org.dom4j.io.SAXReader;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 /**
  * Compares two XML documents using XMLUnit (http://xmlunit.sourceforge.net/).
@@ -79,9 +93,12 @@ public class AssertDocumentsEqualTag extends XMLUnitTagSupport {
 
             Diff delta = null;
             try {
-                delta = new Diff(
-                    expectedDocument.asXML(),
-                    actualDocument.asXML());
+                // Handed XML text, XMLUnit re-parses it with its own JAXP parser, which fetches external DTDs.
+                // Build the DOM trees with Commons Secure XML instead and let XMLUnit compare those.
+                final DocumentBuilderFactory factory = SecureDocumentBuilderFactory.newNSInstance();
+                factory.setIgnoringElementContentWhitespace(ignoreWhitespace);
+                final DocumentBuilder builder = factory.newDocumentBuilder();
+                delta = new Diff(toDom(builder, expectedDocument), toDom(builder, actualDocument));
             }
             catch (final Throwable e) {
                 throw new JellyTagException(e);
@@ -92,6 +109,14 @@ public class AssertDocumentsEqualTag extends XMLUnitTagSupport {
             }
             fail(delta.toString());
         }
+    }
+
+    /**
+     * Re-parses a dom4j document into a W3C DOM tree with the given builder.
+     */
+    private static org.w3c.dom.Document toDom(final DocumentBuilder builder, final Document document)
+            throws SAXException, IOException {
+        return builder.parse(new InputSource(new StringReader(document.asXML())));
     }
 
     /**
