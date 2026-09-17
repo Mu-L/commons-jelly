@@ -60,10 +60,10 @@ public class ApplyTemplatesTag extends TagSupport {
         // for some reason, these DOM4J methods only throw Exception
         try {
             if ( select != null ) {
-                stylesheet.applyTemplates( source, select, mode );
+                Stylesheets.applyTemplates( stylesheet, source, select, mode );
             }
             else {
-                stylesheet.applyTemplates( source, mode );
+                Stylesheets.applyTemplates( stylesheet, source, mode );
             }
         }
         catch (final Exception e) {

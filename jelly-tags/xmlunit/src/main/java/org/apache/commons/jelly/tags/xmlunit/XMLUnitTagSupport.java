@@ -21,9 +21,12 @@ import java.io.InputStream;
 import java.io.Reader;
 import java.net.URL;
 
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.apache.commons.jelly.JellyTagException;
 import org.apache.commons.jelly.XMLOutput;
 import org.apache.commons.jelly.tags.junit.AssertTagSupport;
+import org.apache.commons.xml.secure.SecureSAXParserFactory;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.io.SAXContentHandler;
@@ -31,6 +34,27 @@ import org.dom4j.io.SAXReader;
 import org.xml.sax.SAXException;
 
 public abstract class XMLUnitTagSupport extends AssertTagSupport {
+
+    /**
+     * Creates a new SAXReader backed by an XMLReader from Commons Secure XML.
+     *
+     * @return a new SAXReader that does not fetch external entities.
+     * @throws IllegalStateException if no XML reader can be created.
+     */
+    protected static SAXReader createSecureSAXReader() {
+        // dom4j builds its reader through JAXP internally; hand it one from the secure factory instead.
+        try {
+            final SAXReader reader = new SAXReader(SecureSAXParserFactory.newNSInstance().newSAXParser().getXMLReader());
+            // Without an explicit EntityResolver, SAXReader installs one at read time that fetches every system ID.
+            // Resolving nothing instead hands each lookup to the ignore-all floor of Commons Secure XML.
+            reader.setEntityResolver((publicId, systemId) -> null);
+            return reader;
+        } catch (final ParserConfigurationException | SAXException e) {
+            // Current JAXP implementations fail eagerly while the factory is configured, so these
+            // checked exceptions are not thrown in practice.
+            throw new IllegalStateException("Unable to create a new XML reader", e);
+        }
+    }
 
     /** The SAXReader used to parser the document */
     private SAXReader saxReader;

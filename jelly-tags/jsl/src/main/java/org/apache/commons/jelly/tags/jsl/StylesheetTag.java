@@ -93,7 +93,7 @@ public class StylesheetTag extends XPathTagSupport implements XPathSource {
                     log.debug("About to evaluate stylesheet on source: " + source);
                 }
 
-                stylesheet.run(source);
+                Stylesheets.run(stylesheet, source);
             }
             catch (final Exception e) {
                 throw new JellyTagException(e);

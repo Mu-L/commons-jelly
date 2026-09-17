@@ -65,7 +65,7 @@ public class StyleTag extends XPathTagSupport {
                 log.debug("About to evaluate stylesheet on source: " + source);
             }
 
-            stylesheet.run(source);
+            Stylesheets.run(stylesheet, source);
         } catch (final Exception e) {
             throw new JellyTagException(e);
         }

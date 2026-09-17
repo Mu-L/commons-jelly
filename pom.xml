@@ -199,9 +199,10 @@
       <version>4.13.2</version>
     </dependency>
     <dependency>
-      <groupId>dom4j</groupId>
+      <groupId>org.dom4j</groupId>
       <artifactId>dom4j</artifactId>
-      <version>1.6.1</version>
+      <!-- 2.1.x is the last line that runs on Java 8; 2.2.0 requires Java 11. -->
+      <version>2.1.5</version>
     </dependency>
     <dependency>
       <groupId>commons-logging</groupId>

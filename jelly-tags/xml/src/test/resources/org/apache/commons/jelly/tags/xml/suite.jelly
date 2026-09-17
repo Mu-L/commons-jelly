@@ -360,5 +360,12 @@
     <j:set var="value"><x:copyOf select="$doc/a/node()" lexical="true"/></j:set>
     <test:assertEquals actual="${value}" expected="&amp;x;y"/>
   </test:case>
-    
+
+  <test:case name="testExternalDtdIsNotFetched">
+    <!-- The DOCTYPE points to a DTD that does not exist: dom4j must leave it to the secure reader, which ignores it -->
+    <x:parse var="doc" xml="externalDtd.xml"/>
+    <j:set var="value"><x:copyOf select="$doc/a/node()"/></j:set>
+    <test:assertEquals actual="${value}" expected="text"/>
+  </test:case>
+
 </test:suite>

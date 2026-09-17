@@ -54,9 +54,15 @@ public class ParseTag extends ParseTagSupport {
     protected SAXReader createSAXReader() throws SAXException {
         // dom4j builds its reader through JAXP internally; hand it one from the secure factory instead.
         try {
-            return new SAXReader(SecureSAXParserFactory.newNSInstance().newSAXParser().getXMLReader(), validate);
+            final SAXReader reader = new SAXReader(SecureSAXParserFactory.newNSInstance().newSAXParser().getXMLReader(), validate);
+            // Without an explicit EntityResolver, SAXReader installs one at read time that fetches every system ID.
+            // Resolving nothing instead hands each lookup to the ignore-all floor of Commons Secure XML.
+            reader.setEntityResolver((publicId, systemId) -> null);
+            return reader;
         } catch (final ParserConfigurationException e) {
-            throw new SAXException(e);
+            // Current JAXP implementations fail eagerly while the factory is configured, so these
+            // checked exceptions are not thrown in practice.
+            throw new IllegalStateException("Couldn't create SAX reader", e);
         }
     }
 
